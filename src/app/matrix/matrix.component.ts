@@ -11,7 +11,6 @@ export class MatrixComponent {
   private entropy: EntropyService;
 
   private range: number;
-  private joint: number[][];
 
   constructor (EntropyService: EntropyService) {
     this.entropy = EntropyService;
