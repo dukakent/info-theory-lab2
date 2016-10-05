@@ -1,1 +1,9 @@
-<strong>Works!</strong>
+<input
+  type="number"
+  [(ngModel)]="range"
+  (change)="update()">
+<table>
+  <tr *ngFor="let row of entropy.joint">
+    <td *ngFor="let item of row">{{ item.toFixed(3) }}</td>
+  </tr>
+</table>

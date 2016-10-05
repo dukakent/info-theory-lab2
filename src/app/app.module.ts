@@ -5,6 +5,7 @@ import { HttpModule }       from '@angular/http';
 
 import { AppComponent }     from './app.component';
 import { MatrixComponent }  from './matrix/matrix.component';
+import { EntropyService }   from './entropy/entropy.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { MatrixComponent }  from './matrix/matrix.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [ EntropyService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
