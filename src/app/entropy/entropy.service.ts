@@ -7,25 +7,34 @@ export class EntropyService {
 
   constructor() { }
 
-  public generate(range: number) {
-    let matrix: number[][] = [];
+  private init(range: number) {
+    this.joint = [];
+    for (var i = 0; i < range; i++) {
+      this.joint[i] = [];
+      for (var j = 0; j < range; j++) {
+        this.joint[i][j] = 0;
+      }
+    }
+  }
+
+  private eachItem(action: (item: number) => number) {
+    for(let row of this.joint) {
+      for(let i in row) {
+        row[i] = action(row[i]);
+      }
+    }
+  }
+
+
+  public generate(range: number): void {
     let sum = 0;
 
-    for(let i = 0; i < range; i++) {
-      matrix[i] = [];
-
-      for(let j = 0; j < range; j++) {
-        matrix[i][j] = Math.random();
-        sum += matrix[i][j];
-      }
-    }
-
-    for(let i = 0; i < range; i++) {
-      for(let j = 0; j < range; j++) {
-        matrix[i][j] /= sum;
-      }
-    }
-
-    this.joint = matrix;
+    this.init(range);
+    this.eachItem((oldItem) => {
+      let newItem = Math.random();
+      sum += newItem;
+      return newItem;
+    });
+    this.eachItem((item) => item / sum);
   }
 }

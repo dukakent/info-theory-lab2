@@ -8,15 +8,18 @@ import { EntropyService } from '../entropy/entropy.service';
 })
 export class MatrixComponent {
 
-  private range: number = 3;
   private entropy: EntropyService;
+
+  private range: number;
+  private joint: number[][];
 
   constructor (EntropyService: EntropyService) {
     this.entropy = EntropyService;
+    this.range = 3;
     this.update();
   }
 
-  private update() {
+  private update(): void {
     this.entropy.generate(this.range);
   }
 }
