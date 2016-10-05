@@ -4,7 +4,7 @@
   (change)="update()"
   min="0">
 <table>
-  <tr *ngFor="let row of entropy.joint">
+  <tr *ngFor="let row of joint">
     <td *ngFor="let item of row">{{ item.toFixed(3) }}</td>
   </tr>
 </table>

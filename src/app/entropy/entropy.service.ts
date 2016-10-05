@@ -3,11 +3,11 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class EntropyService {
 
-  public joint: number[][];
+  private joint: number[][];
 
   constructor() { }
 
-  private init(range: number) {
+  private init(range: number): void {
     this.joint = [];
     for (var i = 0; i < range; i++) {
       this.joint[i] = [];
@@ -17,7 +17,7 @@ export class EntropyService {
     }
   }
 
-  private eachItem(action: (item: number) => number) {
+  private eachItem(action: (item: number) => number): void {
     for(let row of this.joint) {
       for(let i in row) {
         row[i] = action(row[i]);
@@ -26,7 +26,7 @@ export class EntropyService {
   }
 
 
-  public generate(range: number): void {
+  public generate(range: number): number[][] {
     let sum = 0;
 
     this.init(range);
@@ -36,5 +36,7 @@ export class EntropyService {
       return newItem;
     });
     this.eachItem((item) => item / sum);
+
+    return this.joint;
   }
 }

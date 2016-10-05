@@ -9,7 +9,7 @@ import { EntropyService } from '../entropy/entropy.service';
 export class MatrixComponent {
 
   private entropy: EntropyService;
-
+  private joint: number[][];
   private range: number;
 
   constructor (EntropyService: EntropyService) {
@@ -19,6 +19,6 @@ export class MatrixComponent {
   }
 
   private update(): void {
-    this.entropy.generate(this.range);
+    this.joint = this.entropy.generate(this.range);
   }
 }
