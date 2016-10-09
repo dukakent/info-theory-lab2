@@ -1,10 +1,20 @@
-<input
-  type="number"
-  [(ngModel)]="range"
-  (change)="update()"
-  min="0">
-<table>
-  <tr *ngFor="let row of joint">
-    <td *ngFor="let item of row">{{ item.toFixed(3) }}</td>
-  </tr>
+<table class="table table-bordered matrix">
+  <thead>
+    <tr>
+      <th>Y\X</th>
+      <th *ngFor="let row of entropy.matrixJoint; let i = index">x<sub>{{i}}</sub></th>
+      <th>p<sub>y</sub></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of entropy.matrixJoint; let i = index">
+      <th>y<sub>{{i}}</sub></th>
+      <td *ngFor="let item of row">{{ item.toFixed(3) }}</td>
+      <td class="separate-column">{{ entropy.Py[i].toFixed(3) }}</td>
+    </tr>
+    <tr class="separate-row">
+      <th>p<sub>x</sub></th>
+      <td *ngFor="let item of entropy.Px">{{item.toFixed(3) }}</td>
+    </tr>
+  </tbody>
 </table>

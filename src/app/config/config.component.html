@@ -1,0 +1,19 @@
+<form action="" class="form-inline">
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon">Size:</span>
+      <input
+        type="number"
+        class="form-control range-input"
+        id="range-input"
+        name="range"
+        [(ngModel)]="range"
+        (change)="update()"
+        min="1">
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-default" (click)="update()">Generate</button>
+    <button class="btn btn-default" (click)="update(true)">Equalize</button>
+  </div>
+</form>

@@ -4,13 +4,17 @@ import { FormsModule }      from '@angular/forms';
 import { HttpModule }       from '@angular/http';
 
 import { AppComponent }     from './app.component';
-import { MatrixComponent }  from './matrix/matrix.component';
 import { EntropyService }   from './entropy/entropy.service';
+import { MatrixComponent }  from './matrix/matrix.component';
+import { ConfigComponent }  from './config/config.component';
+import { ResultComponent }  from './result/result.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MatrixComponent
+    MatrixComponent,
+    ConfigComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,

@@ -2,13 +2,10 @@ import { Component } from '@angular/core';
 import { EntropyService } from '../entropy/entropy.service';
 
 @Component({
-  selector:     'matrix',
-  templateUrl:  './matrix.component.html',
-  styleUrls:    [
-                  './matrix.component.css'
-                ]
+  selector:     'result',
+  templateUrl:  './result.component.html'
 })
-export class MatrixComponent {
+export class ResultComponent {
 
   private entropy: EntropyService;
 
