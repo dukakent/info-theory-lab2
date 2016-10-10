@@ -9,7 +9,8 @@ export class EntropyService {
   private Px: number[];
   private Py: number[];
   private HJoint: number;
-
+  private HXrelateY: number;
+  private HYrelateX: number;
 
   constructor() { }
 
@@ -25,10 +26,13 @@ export class EntropyService {
     this.Px = Array(range);
     this.Py = Array(range);
     this.joint = (Array(range)).fill([]);
+    this.XrelateY = (Array(range)).fill([]);
+    this.YrelateX = (Array(range)).fill([]);
 
     for (let i in this.joint) {
-      this.joint[i] = Array(range);
-      this.joint[i].fill(0);
+      this.joint[i]     = (Array(range)).fill(0);
+      this.XrelateY[i]  = (Array(range)).fill(0);
+      this.YrelateX[i]  = (Array(range)).fill(0);
     }
   }
 
@@ -69,5 +73,13 @@ export class EntropyService {
 
       this.Py[i] = sum;
     }
+  }
+
+  public computeXrelateY(): void {
+
+  }
+
+  public computeYrelateX(): void {
+
   }
 }

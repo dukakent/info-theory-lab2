@@ -24,5 +24,7 @@ export class ConfigComponent {
     this.entropy.generate(isSame);
     this.entropy.computePx();
     this.entropy.computePy();
+    this.entropy.computeXrelateY();
+    this.entropy.computeYrelateX();
   }
 }
