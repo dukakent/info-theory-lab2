@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { EntropyService } from '../entropy/entropy.service';
 
 @Component({
@@ -10,6 +10,8 @@ import { EntropyService } from '../entropy/entropy.service';
 })
 export class MatrixComponent {
 
+  @Input('entropy') type: string;
+  
   private entropy: EntropyService;
 
   constructor (EntropyService: EntropyService) {

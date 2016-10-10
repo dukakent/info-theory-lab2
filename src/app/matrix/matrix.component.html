@@ -2,17 +2,17 @@
   <thead>
     <tr>
       <th>Y\X</th>
-      <th *ngFor="let row of entropy.matrixJoint; let i = index">x<sub>{{i}}</sub></th>
-      <th>p<sub>y</sub></th>
+      <th *ngFor="let row of entropy[type]; let i = index">x<sub>{{i}}</sub></th>
+      <th *ngIf="type==='joint'">p<sub>y</sub></th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let row of entropy.matrixJoint; let i = index">
+    <tr *ngFor="let row of entropy[type]; let i = index">
       <th>y<sub>{{i}}</sub></th>
       <td *ngFor="let item of row">{{ item.toFixed(3) }}</td>
-      <td class="separate-column">{{ entropy.Py[i].toFixed(3) }}</td>
+      <td *ngIf="type==='joint'" class="separate-column">{{ entropy.Py[i].toFixed(3) }}</td>
     </tr>
-    <tr class="separate-row">
+    <tr *ngIf="type==='joint'" class="separate-row">
       <th>p<sub>x</sub></th>
       <td *ngFor="let item of entropy.Px">{{item.toFixed(3) }}</td>
     </tr>

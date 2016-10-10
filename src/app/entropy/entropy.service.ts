@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class EntropyService {
 
-  private matrixJoint: number[][];
+  public joint: number[][];
+  public XrelateY: number[][];
+  public YrelateX: number[][];
   private Px: number[];
   private Py: number[];
   private HJoint: number;
@@ -12,7 +14,7 @@ export class EntropyService {
   constructor() { }
 
   private eachItem(action: (item: number) => number): void {
-    for(let row of this.matrixJoint) {
+    for(let row of this.joint) {
       for(let i in row) {
         row[i] = action(row[i]);
       }
@@ -22,11 +24,11 @@ export class EntropyService {
   public init(range: number): void {
     this.Px = Array(range);
     this.Py = Array(range);
-    this.matrixJoint = (Array(range)).fill([]);
+    this.joint = (Array(range)).fill([]);
 
-    for (let i in this.matrixJoint) {
-      this.matrixJoint[i] = Array(range);
-      this.matrixJoint[i].fill(0);
+    for (let i in this.joint) {
+      this.joint[i] = Array(range);
+      this.joint[i].fill(0);
     }
   }
 
@@ -50,18 +52,18 @@ export class EntropyService {
   public computePx(): void {
     this.Px.fill(0);
 
-    for (let i in this.matrixJoint) {
-      for (let j in this.matrixJoint[i]) {
-        this.Px[j] += this.matrixJoint[i][j];
+    for (let i in this.joint) {
+      for (let j in this.joint[i]) {
+        this.Px[j] += this.joint[i][j];
       }
     }
   }
 
   public computePy(): void {
-    for (let i in this.matrixJoint) {
+    for (let i in this.joint) {
       let sum = 0;
 
-      for (let item of this.matrixJoint[i]) {
+      for (let item of this.joint[i]) {
         sum += item;
       }
 
