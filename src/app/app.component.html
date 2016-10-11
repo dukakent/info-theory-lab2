@@ -15,30 +15,31 @@
 </div>
 <div class="main container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-xs-6">
       <h3>Configuration:</h3>
       <config></config>
     </div>
-    <div class="col-md-6">
-      <h3>Results:</h3>
+    <div class="col-xs-6">
+      <h3>Results</h3>
       <result></result>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <h3>Matrix of joint probabilities:</h3>
+      <h3>Joint probabilities:</h3>
       <matrix [entropy]="'joint'"></matrix>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <h3>Matrix of conditional probabilities (X relates Y):</h3>
+      <h3>Conditional probabilities (X relates Y):</h3>
       <matrix [entropy]="'XrelateY'"></matrix>
+
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <h3>Matrix of conditional probabilities (Y relates X):</h3>
+      <h3>Conditional probabilities (Y relates X):</h3>
       <matrix [entropy]="'YrelateX'"></matrix>
     </div>
   </div>

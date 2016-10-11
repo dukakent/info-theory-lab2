@@ -1,1 +1,5 @@
-<div>H(X,Y) = {{ entropy.HJoint.toFixed(3) }}</div>
+<div>H(X,Y) = {{ entropy.HJoint.toFixed(3) }} b</div>
+<div>H(Y/X) = {{ entropy.HYrelateX.toFixed(3) }} b</div>
+<div>H(X/Y) = {{ entropy.HXrelateY.toFixed(3) }} b</div>
+<div>H(X) = {{ (entropy.HJoint - entropy.HYrelateX).toFixed(3) }} b</div>
+<div>H(Y) = {{ (entropy.HJoint - entropy.HXrelateY).toFixed(3) }} b</div>

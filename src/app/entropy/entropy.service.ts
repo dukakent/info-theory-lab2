@@ -76,10 +76,33 @@ export class EntropyService {
   }
 
   public computeXrelateY(): void {
+    this.HXrelateY = 0;
 
+    for (let i in this.joint) {
+      let sum = 0;
+
+      for (let j in this.joint[i]) {
+        this.XrelateY[i][j] = this.joint[i][j] / this.Py[i];
+        sum -= this.joint[i][j] * Math.log2(this.XrelateY[i][j]);
+      }
+
+      this.HXrelateY += (this.Py[i] * sum);
+    }
   }
 
   public computeYrelateX(): void {
+    let size = this.joint.length;
+    this.HYrelateX = 0;
 
+    for (let i = 0; i < size; i++) {
+      let sum = 0;
+
+      for (let j = 0; j < size; j++) {
+        this.YrelateX[j][i] = this.joint[j][i] / this.Px[i];
+        sum -= this.joint[j][i] * Math.log2(this.YrelateX[j][i]);
+      }
+
+      this.HYrelateX += (this.Px[i] * sum);
+    }
   }
 }
